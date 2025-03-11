@@ -12,6 +12,7 @@ public interface UserService {
     LoginResponseDto login(LoginRequestDto requestDto);
     String logout(String email);
     String resetPassword(ResetPasswordRequestDto requestDto);
+    String sendOtp(String email) ;
 
 
     }

@@ -3,6 +3,8 @@ package mobios.crm.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Getter
 @Setter
@@ -20,4 +22,9 @@ public class User {
     private String password;
     private String otp;
     private boolean verified;
+    private LocalDateTime otpExpiry;
+
+    public void setOtpExpiry(LocalDateTime localDateTime) {
+        this.otpExpiry = localDateTime;
+    }
 }

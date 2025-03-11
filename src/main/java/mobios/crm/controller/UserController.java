@@ -7,6 +7,9 @@ import mobios.crm.service.impl.EmailService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 @RequiredArgsConstructor
 @CrossOrigin
@@ -28,7 +31,6 @@ public class UserController {
     }
     @PostMapping("/login")
     public ResponseEntity<LoginResponseDto> login(@RequestBody LoginRequestDto request) {
-        System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
         LoginResponseDto response = userService.login(request);
         return ResponseEntity.ok(response);
     }
@@ -44,6 +46,10 @@ public class UserController {
         String response = userService.resetPassword(request);
         return ResponseEntity.ok(response);
     }
-
+    @PostMapping("/send-otp/{email}")
+    public ResponseEntity<String> sendOtp(@PathVariable("email") String email) {
+        String response = userService.sendOtp(email);
+        return ResponseEntity.ok(response);
+    }
 
 }
